@@ -1,0 +1,17 @@
+{% extends "learning_logs/base.html" %}
+
+{% block page_header %}
+<h3>Register for log in your learnings.</h3>
+{% endblock page_header %}
+
+{% block cont %}
+
+<form method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit" class="btn btn-primary">Register</button>
+    <input type="hidden" name="text" value="{% url 'learning_logs:index' %}"/>
+</form>
+
+{% endblock cont %}
